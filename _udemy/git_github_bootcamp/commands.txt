@@ -30,3 +30,8 @@ ID and a message describing the changes.
 
 code .
 Opens the current directory in Visual Studio Code.
+
+
+git log --oneline
+Shows a compact version of the commit history, displaying each commit as a
+single line with its short hash and message.
