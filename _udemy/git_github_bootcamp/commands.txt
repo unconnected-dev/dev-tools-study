@@ -23,6 +23,10 @@ staging area, preparing them to be included in the next commit.
 The . will add all changes at once.
 
 
-git commit -m
+git commit -m "commit message here"
 Saves staged changes to the repository's history. Each commit has a unique
 ID and a message describing the changes.
+
+
+code .
+Opens the current directory in Visual Studio Code.
