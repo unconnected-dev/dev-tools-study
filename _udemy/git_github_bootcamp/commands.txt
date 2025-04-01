@@ -1,0 +1,15 @@
+Commands
+
+
+
+ls -a
+Lists all contents of a directory, including hidden files and directories.
+
+
+git status
+Gives information on the current status of a Git repository and its contents.
+
+
+git init
+Initializes a Git repo. This is done once per project, at the top-level folder
+containing your project.

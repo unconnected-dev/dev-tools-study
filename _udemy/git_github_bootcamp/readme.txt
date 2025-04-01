@@ -1,0 +1,22 @@
+https://www.udemy.com/course/git-and-github-bootcamp/
+
+
+
+Version Control System
+Software that tracks and manages changes to files over time. Generally, it
+allows users to revisit earlier versions of the files, compare changes between
+versions, undo changes, etc.
+
+
+Git Bash
+Default shell for Linux and Mac. Git was designed to run on a Unix-based
+interface (like Bash).
+
+Windows comes with a different default command-line interface called Command
+Prompt, which is not Unix-based.
+
+Git Bash is a tool that emulates a Bash experience on a Windows machine.
+
+
+Repository
+A Git "Repo" is a workspace that tracks and manages files within a folder.
