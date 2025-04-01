@@ -31,3 +31,8 @@ and organize changes before saving them in the repository.
 Atomic Commits
 When possible, a commit should encompass a single feature, or fix. In other
 words try to keep each commit focused on a single thing.
+
+
+Amending Commits
+Use git commit --amend to modify the last commit. This lets you update the
+commit message or include additional changes without creating a new commit.
