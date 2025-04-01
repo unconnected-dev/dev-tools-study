@@ -13,3 +13,13 @@ Gives information on the current status of a Git repository and its contents.
 git init
 Initializes a Git repo. This is done once per project, at the top-level folder
 containing your project.
+
+
+git add
+Stages changes for the next commit. It adds modified or new files to the
+staging area, preparing them to be included in the next commit.
+
+
+git commit
+Saves staged changes to the repository's history. Each commit has a unique
+ID and a message describing the changes.
