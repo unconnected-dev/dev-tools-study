@@ -16,8 +16,11 @@ containing your project.
 
 
 git add
+git add .
 Stages changes for the next commit. It adds modified or new files to the
 staging area, preparing them to be included in the next commit.
+
+The . will add all changes at once.
 
 
 git commit -m
