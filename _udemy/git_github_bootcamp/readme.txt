@@ -1,4 +1,5 @@
 https://www.udemy.com/course/git-and-github-bootcamp/
+https://git-scm.com/docs
 
 
 
@@ -25,3 +26,8 @@ A Git "Repo" is a workspace that tracks and manages files within a folder.
 Staging Area
 A place where changes are gathered before committing. It allows you to review
 and organize changes before saving them in the repository.
+
+
+Atomic Commits
+When possible, a commit should encompass a single feature, or fix. In other
+words try to keep each commit focused on a single thing.
