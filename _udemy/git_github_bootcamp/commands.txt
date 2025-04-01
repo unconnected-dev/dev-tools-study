@@ -20,6 +20,6 @@ Stages changes for the next commit. It adds modified or new files to the
 staging area, preparing them to be included in the next commit.
 
 
-git commit
+git commit -m
 Saves staged changes to the repository's history. Each commit has a unique
 ID and a message describing the changes.

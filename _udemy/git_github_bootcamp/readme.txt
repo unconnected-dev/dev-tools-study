@@ -20,3 +20,8 @@ Git Bash is a tool that emulates a Bash experience on a Windows machine.
 
 Repository
 A Git "Repo" is a workspace that tracks and manages files within a folder.
+
+
+Staging Area
+A place where changes are gathered before committing. It allows you to review
+and organize changes before saving them in the repository.
