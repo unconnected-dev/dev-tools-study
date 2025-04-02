@@ -36,3 +36,19 @@ words try to keep each commit focused on a single thing.
 Amending Commits
 Use git commit --amend to modify the last commit. This lets you update the
 commit message or include additional changes without creating a new commit.
+
+
+Branches
+Branches allow multiple versions of a project to exist simultaneously. They
+help in developing new features or fixing bugs without affecting the main code.
+
+
+The Master Branch
+In git, we are always working on a branch. The default branch name is master.
+
+It does not do anything special, it is just like any other branch.
+
+
+HEAD
+The pointer to the current commit in the active branch. It moves with each
+new commit, always representing the latest snapshot of the branch.
