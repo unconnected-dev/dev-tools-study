@@ -52,3 +52,8 @@ It does not do anything special, it is just like any other branch.
 HEAD
 The pointer to the current commit in the active branch. It moves with each
 new commit, always representing the latest snapshot of the branch.
+
+
+Merge
+Combines the history of both branches, integrating their changes into a single
+branch. If there are conflicts, Git will prompt you to resolve them.

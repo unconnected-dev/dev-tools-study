@@ -40,3 +40,33 @@ Opens the current directory in Visual Studio Code.
 git log --oneline
 Shows a compact version of the commit history, displaying each commit as a
 single line with its short hash and message.
+
+
+git branch
+Lists all branches in the repository. 
+
+
+git branch <branch-name>
+Creates a new branch based on the current HEAD.
+
+
+git branch -d <branch-name>
+Deletes a branch locally. This only works if the branch is fully merged.
+
+
+git branch -m <old-branch> <new-branch>  
+Renames the branch to a new name.
+
+
+git switch <branch-name>
+Used to switch between branches or create a new branch. 
+
+
+git switch -c <branch-name>  
+To create and switch to a new branch.
+
+
+git merge <feature-branch>  
+Combines changes from one branch into another. Typically used to merge a
+feature branch into the main branch. This merges feature-branch into the
+current branch.
