@@ -40,3 +40,13 @@ Opens the current directory in Visual Studio Code.
 git log --oneline
 Shows a compact version of the commit history, displaying each commit as a
 single line with its short hash and message.
+
+
+git branch -d feature-branch  
+Deletes a local branch that has already been merged. It helps clean up old
+branches after they've been integrated.
+
+
+git branch -D feature-branch  
+Forcefully deletes a local branch, even if it hasn't been merged. Use with
+caution, as unmerged changes will be lost.
