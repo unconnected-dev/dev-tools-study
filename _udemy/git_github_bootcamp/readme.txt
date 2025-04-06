@@ -52,3 +52,14 @@ It does not do anything special, it is just like any other branch.
 HEAD
 The pointer to the current commit in the active branch. It moves with each
 new commit, always representing the latest snapshot of the branch.
+
+
+Conflict Markers
+When Git can't automatically merge changes, it adds conflict markers to show
+conflicting sections in a file.
+
+    <<<<<<< HEAD  
+    your changes  
+    =======  
+    incoming changes  
+    >>>>>>> feature-branch  
