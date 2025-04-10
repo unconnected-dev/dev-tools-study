@@ -55,3 +55,6 @@ caution, as unmerged changes will be lost.
 git diff
 Shows the differences between files or commits. It highlights what changes
 have been made but not yet staged or committed.
+
+git dif HEAD
+Lists all changes in the working tree since your last commit.
