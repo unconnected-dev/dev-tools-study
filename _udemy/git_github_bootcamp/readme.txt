@@ -57,3 +57,27 @@ new commit, always representing the latest snapshot of the branch.
 Merge
 Combines the history of both branches, integrating their changes into a single
 branch. If there are conflicts, Git will prompt you to resolve them.
+
+
+Conflict Markers
+When Git can't automatically merge changes, it adds conflict markers to show
+conflicting sections in a file.
+
+    <<<<<<< HEAD  
+    your changes  
+    =======  
+    incoming changes  
+    >>>>>>> feature-branch  
+
+
+Changes
+Every line that changed between the two files is marked with either a + or 
+- symbol. 
+
+Lines that begin with - come from file A
+Lines that begin with + come from file B
+
+    @@ -49,4 +49,9 @@ branches after they've been integrated.
+
+    -49,4 means the original file had 4 lines starting at line 49
+    +49,9 means the new file has 9 lines starting at line 49
