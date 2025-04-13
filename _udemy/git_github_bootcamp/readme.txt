@@ -81,3 +81,12 @@ Lines that begin with + come from file B
 
     -49,4 means the original file had 4 lines starting at line 49
     +49,9 means the new file has 9 lines starting at line 49
+
+
+Stashing
+Git provides an easy way of stashing uncommmited changes so that we can return
+to them later, without having to make unnecessary commits. This affects staged
+and unstaged changes.
+
+You can add multiple stashes onto the stack of stashes. They will all be 
+stashed in the order you added them.
