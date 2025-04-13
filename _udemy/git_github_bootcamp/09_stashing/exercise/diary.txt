@@ -1,3 +1,4 @@
 Just some text
 Just some text
 Just some text
+I removed the previous line
