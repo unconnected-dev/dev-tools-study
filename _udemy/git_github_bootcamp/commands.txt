@@ -156,3 +156,6 @@ Deletes all stash entries.
 git checkout <branch-or-commit>
 Switches to a branch or restores files from a specific commit. This can
 cause a detached head state to occur.
+
+
+git switch master
