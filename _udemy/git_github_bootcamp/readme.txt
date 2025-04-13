@@ -101,3 +101,12 @@ create branches, switch to new branches, restore files, and undo history.
 Detached HEAD  
 A state where HEAD points to a specific commit, not a branch. Changes made here
 won’t belong to any branch unless explicitly saved.
+
+HEAD is usally a pointer to the current branch reference. The branch reference 
+is a pointer to the last commit made on a particular branch.
+
+When we make a new commit, the branch pointer is updated to reflect the new 
+commit. The HEAD remains the same, because it's pointing at the branch 
+reference.
+
+HEAD points to master, not the commit hash.
