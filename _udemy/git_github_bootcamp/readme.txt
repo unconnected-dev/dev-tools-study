@@ -90,3 +90,14 @@ and unstaged changes.
 
 You can add multiple stashes onto the stack of stashes. They will all be 
 stashed in the order you added them.
+
+
+Checkout
+The git checkout command is thought to be overloaded, which is what lead to the
+addition of the git switch and git restore commands. We can use checkout to 
+create branches, switch to new branches, restore files, and undo history.
+
+
+Detached HEAD  
+A state where HEAD points to a specific commit, not a branch. Changes made here
+won’t belong to any branch unless explicitly saved.

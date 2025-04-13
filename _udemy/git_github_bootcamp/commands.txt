@@ -151,3 +151,8 @@ Deletes a specific stash entry from the stash list.
 
 git stash clear
 Deletes all stash entries.
+
+
+git checkout <branch-or-commit>
+Switches to a branch or restores files from a specific commit. This can
+cause a detached head state to occur.
