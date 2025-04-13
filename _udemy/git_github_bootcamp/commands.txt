@@ -79,21 +79,21 @@ current branch.
 
 
 git diff
-git diff [filename]
+git diff <filename>
 Compares staging area and working directory. It highlights what changes
 have been made but not yet staged. It just shows unstaged changes.
 
 
 git diff HEAD
-git diff HEAD [filename]
+git diff HEAD <filename>
 Lists all changes in the working tree since your last commit. Both staged
 and unstaged.
 
 
 git diff --staged
-git diff --staged [filename]
+git diff --staged <filename>
 git diff --cached
-git diff --cached [filename]
+git diff --cached <filename>
 Shows the difference between the staging area and the last commit. It
 shows what changes you’ve staged (with git add) but haven’t committed yet.
 
@@ -158,4 +158,36 @@ Switches to a branch or restores files from a specific commit. This can
 cause a detached head state to occur.
 
 
+git checkout HEAD~1
+Checks out the commit one before HEAD, entering detached HEAD state.
+
+
+git switch -
+Exits detached HEAD state by switching back to previous branch.
+
+
 git switch master
+git switch main
+Exits detached HEAD state by switching back to the master branch.
+
+
+git checkout HEAD <filename>
+git checkout -- <filename>
+Restores the file to its last committed state, discarding local changes.
+
+
+git restore <filename>
+Restores the file to the last committed state, discarding local changes.
+Last state is based on the HEAD.
+
+
+git restore --source HEAD~1 <filename>
+Restores the file to its state in the commit one before HEAD.
+
+
+git restore --staged <filename>
+Unstages the file, keeping its changes in the working directory.
+
+
+git clone <url>
+Creates a local copy of a remote repository.
