@@ -69,7 +69,9 @@ Lists all remote branches.
 
 
 git switch <branch-name>
-Used to switch between branches or create a new branch. 
+git switch <remote-branch-name>
+Used to switch between branches. If their is a remote branch of the same name 
+it will be set up to track.
 
 
 git switch -c <branch-name>  
@@ -198,7 +200,26 @@ Creates a local copy of a remote repository.
 
 
 git fetch
-Downloads changes from the remote repository without merging them.
+git fetch <remote>
+git fetch <remote> <branch>
+Downloads changes from the remote repository without merging them. This puts
+them to the local repository but does not affect the working directory files.
+
+Think of as "please go and get the latest information from Github, but don't
+screw up my working directory.
+
+<remote> defaults to origin
+
+
+git pull
+git pull <remote> <branch>
+Fetches and merges changes from the remote branch into the current branch.
+Unlike fetch, pull updates the HEAD branch with whatever changes are 
+retrieved from the remote.
+
+Essentially git fetch + git merge
+
+Like git merge it matters where this commadn is run from.
 
 
 git remote

@@ -135,3 +135,22 @@ pointing to the last known commit on the master branch on origin.
 These references are read-only for the local repository and cannot be moved or
 changed directly; they only update when you interact with the remote repository,
 typically via commands like git fetch, git pull, or git push.
+
+
+Fetching
+Allows us to download changes from a remote repository, BUT those changes will 
+not be automatically integrated into our working files.
+
+It lets you see what others have bene working on, without having to merge those
+changes into your local repo.
+
+Think of it as "please go and get the latest information from Github, but don't
+screw up my working directory."
+
+
+Pulling
+Like fetch but updates the HEAD branch with whatever changes are retrieved from
+the remote.
+
+Think of as "go and download data from Github AND immediately update my local 
+repo with those changes"
