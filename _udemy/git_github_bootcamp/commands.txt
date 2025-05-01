@@ -64,6 +64,10 @@ git branch -m <old-branch> <new-branch>
 Renames the branch to a new name.
 
 
+git branch -r
+Lists all remote branches.
+
+
 git switch <branch-name>
 Used to switch between branches or create a new branch. 
 

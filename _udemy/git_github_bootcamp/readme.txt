@@ -126,3 +126,12 @@ just a name for a URL.
 
 When we clone a Github repo, the default remote name setup is called origin.
 It can be canged but most people leave it.
+
+
+Remote Tracking Branch Reference
+A reference to the state of the master branch on the remote. Like a bookmark
+pointing to the last known commit on the master branch on origin.
+
+These references are read-only for the local repository and cannot be moved or
+changed directly; they only update when you interact with the remote repository,
+typically via commands like git fetch, git pull, or git push.
