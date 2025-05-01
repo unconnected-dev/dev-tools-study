@@ -155,3 +155,27 @@ the remote.
 
 Think of as "go and download data from Github AND immediately update my local 
 repo with those changes"
+
+
+Github Gists
+A simple way to share code snippets and useful fragments with others. Gists are
+much easier to create, but offer far fewer features than a typical repository.
+
+
+Github Pages
+Public webpages that are hosted and published via Github. It does not support
+server-side code like Python, Ruby, or Node. Just HTML/CSS/JS.
+
+
+User Site
+There is one user site per Github account. This is where you could host a 
+portfolio site or some form of personal website. The default url is based on
+your Github username, following this pattern: username.github.io though you 
+can change this.
+
+
+Project Sites
+You get unlimited project sites, each Github repo can have a corresponding
+hosted website. It's as simple as telling Github which specific branch 
+contains the web content. The default urls follow this pattern:
+username.github.io/repo-name
