@@ -110,3 +110,19 @@ commit. The HEAD remains the same, because it's pointing at the branch
 reference.
 
 HEAD points to master, not the commit hash.
+
+
+Remote
+Before pushing to Github, we need to tell Git about the remote repository on
+Github. A "destination" needs to be setup to push to.
+
+In Git these "destinations" are referred to as remotes. Each remote is simply a
+URL where the hosted repository is.
+
+
+Origin
+This is a conventional Git remote name, but it is not at all special. It is
+just a name for a URL. 
+
+When we clone a Github repo, the default remote name setup is called origin.
+It can be canged but most people leave it.

@@ -191,3 +191,43 @@ Unstages the file, keeping its changes in the working directory.
 
 git clone <url>
 Creates a local copy of a remote repository.
+
+
+git fetch
+Downloads changes from the remote repository without merging them.
+
+
+git remote
+git remote -v
+Lists the short names of configured remotes.
+
+
+git remote add <name> <url>
+Adds a new remote repository with a given name and URL.
+
+
+git remote rename <old-name> <new-name>
+Renames a remote reference.
+
+
+git remote remove <name>
+Removes a remote reference from the repository.
+
+
+git push
+git push origin master
+git push origin main
+Pushes changes to the default remote repository and branch.
+
+
+git push <remote> <branch>
+Pushes the specified branch to the remote repository.
+
+
+git push <remote> <local-branch>:<remote-branch>
+Pushes local branch to a different branch name on the remote.
+
+
+git push -u <remote> <branch>
+Pushes and sets the upstream branch for future git push/pull. Once this is set
+we can use `git push` for shorthand.
