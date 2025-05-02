@@ -179,3 +179,51 @@ You get unlimited project sites, each Github repo can have a corresponding
 hosted website. It's as simple as telling Github which specific branch 
 contains the web content. The default urls follow this pattern:
 username.github.io/repo-name
+
+
+Centralized Workflow
+Everyone works on master / main. AKA The most basic workflow possible.
+
+The simplest collaborative workflow is to have everyone work on a single
+branch. It is straightforward and can work for small teams, but it has quite a
+few shortcomings.
+
+
+Feature Branches
+Rather than working on directly on the master, all new development should be 
+done on separate branches.
+
+Treats master branch as the official project history.
+Multiple teamsmates can collaborate on a single feature and share code back and
+forth without polluting the master branch.
+Master branch won't contain broken code (unless someone messes it up)
+
+
+Fork & Clone
+This workflow is different from the previous two. Instead of just one
+centralized Github repository, every developer has their own Github repository
+in addition to the "main" repo. Developers make changes and push to their own
+forks before making pull requests.
+
+It's commonly used on large open-source projects where there may be thousands
+of contributors with only a couple maintainers.
+
+
+Forking
+Github (and similar tools) allow us to create personal copies of other peoples'
+repositories. We call those copes a "fork" of the original.
+
+When we fork a repo, we're making a copy of the repo via Github.
+
+Like pull requests, forking is not a Git feature. The ability to fork is 
+implemented by Github.
+
+
+Pull Requests
+These are a feature built in to products like Github & Bitbucket. They are NOT
+native to Git itself.
+
+They allow developers to alert team-members to new work that needs to be 
+reviewed. They provide a mechanism to approve or reject the work on a given
+branch. They also help facilitate discussion and feedback on the specified
+commits.
