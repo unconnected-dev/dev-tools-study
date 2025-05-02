@@ -227,3 +227,13 @@ They allow developers to alert team-members to new work that needs to be
 reviewed. They provide a mechanism to approve or reject the work on a given
 branch. They also help facilitate discussion and feedback on the specified
 commits.
+
+
+Rebasing
+Instead of regular merges which may muddy the history we can rebase the feature
+branch onto the master branch. This moves the entire feature branch so that it
+begins at the tip of the master branch. All work is still there but we have 
+re-written history.
+
+Instead of using a merge commit, rebasing rewrites history by creating new 
+commits for each of the original feature branch commits.
