@@ -237,3 +237,7 @@ re-written history.
 
 Instead of using a merge commit, rebasing rewrites history by creating new 
 commits for each of the original feature branch commits.
+
+Never rebase commits that have been shared with others. If you have already 
+pushed commits up to Github... do not rebase them unless you are positive
+no one on the team is using those commits.

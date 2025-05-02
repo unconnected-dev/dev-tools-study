@@ -256,3 +256,11 @@ Pushes local branch to a different branch name on the remote.
 git push -u <remote> <branch>
 Pushes and sets the upstream branch for future git push/pull. Once this is set
 we can use `git push` for shorthand.
+
+
+git rebase <base-branch>
+Moves current branch commits on top of the given base branch.
+
+
+git rebase -i <base-branch>
+Starts an interactive rebase to edit, squash, or reorder commits.
