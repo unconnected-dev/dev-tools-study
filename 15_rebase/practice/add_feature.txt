@@ -1,1 +1,2 @@
 New main feature
+Added a new feature
