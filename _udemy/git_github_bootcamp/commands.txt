@@ -264,3 +264,43 @@ Moves current branch commits on top of the given base branch.
 
 git rebase -i <base-branch>
 Starts an interactive rebase to edit, squash, or reorder commits.
+
+
+git tag
+Lists all tags in the repository.
+
+
+git tag -l
+Lists tags matching a pattern. Without a pattern, lists all tags.
+
+
+git checkout <tag>
+Checks out a tag, entering detached HEAD state.
+
+
+git tag <tagname>
+git tag <tagname> <commit-hash>
+Creates a lightweight tag pointing to the current commit.
+
+A specific commit can also be tagged.
+
+
+git tag -a <tagname> -m "message"
+Creates an annotated tag with a message. If no message it will load the text
+editor to leave a comment in.
+
+
+git show <tagname>
+Shows information about the commit a tag points to.
+
+
+git tag -d <tagname>
+Deletes a local tag.
+
+
+git push --tags
+Pushes all local tags to the remote repository.
+
+
+git push <remote> <tagname>
+Pushes a specific tag to the remote repository.

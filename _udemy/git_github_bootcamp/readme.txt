@@ -241,3 +241,24 @@ commits for each of the original feature branch commits.
 Never rebase commits that have been shared with others. If you have already 
 pushed commits up to Github... do not rebase them unless you are positive
 no one on the team is using those commits.
+
+
+Git Tags
+Tags are pointers that refer to particular points in Git history. We can mark
+a particular moment in time with a tag. Tags Are often used to mark version 
+releases in projects (v4.1.0, v4.1.1, etc)
+
+Think of tags as branch references that do not change. Once a tag is created, 
+it always refers to the same commit. It's just a label for a commit.
+
+lightweight tags are just a name / label that points to a particular commit.
+
+annotated tags store extra meta data including the author's name and email,
+the date, anda tagging message (like a commit message)
+
+
+Pushing Tags
+By default, the git push command doesn't transfer tags to remote servers. If
+you have  a lot of tags that you want to push up at once, you can use the 
+--tags option to the git push command. This will transfer all of your tags to 
+the remote server that are not already there.
