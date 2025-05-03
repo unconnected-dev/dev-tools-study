@@ -317,3 +317,20 @@ Commits
 Commit objects combine a tree object along with information about the context
 that led to the current tree. Commits store a reference to parent commit(s),
 the author, the commiter, and the commit message.
+
+
+Reflogs
+Git keeps a record of when the tips of branches and other references were 
+updated in the repo.
+
+We can view and update these reference logs using the git reflog command.
+
+Git only keeps reflogs on your local activity. They are not shared by 
+collaborators. Reflogs also expire. Git cleans out old entries after around
+30 days, though this can be configured.
+
+
+Reflog references
+We can access specific git refs with name@{qualifier}. We can use this syntax
+to access specific ref pointers and can pas them to other commands including
+checkout, reset, and merge.

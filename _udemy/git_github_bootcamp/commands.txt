@@ -313,3 +313,11 @@ Shows the local user name set for the current repository.
 git hash-object <file>
 Returns the SHA-1 hash of the file's contents as Git would store it but it 
 does not store it.
+
+
+git reflog
+Shows a log of where HEAD and branch references have moved.
+
+
+git reflog show
+Displays the reflog for the current branch (same as git reflog).
