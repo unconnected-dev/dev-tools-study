@@ -304,3 +304,12 @@ Pushes all local tags to the remote repository.
 
 git push <remote> <tagname>
 Pushes a specific tag to the remote repository.
+
+
+git config --local user.name
+Shows the local user name set for the current repository.
+
+
+git hash-object <file>
+Returns the SHA-1 hash of the file's contents as Git would store it but it 
+does not store it.

@@ -1,5 +1,6 @@
 https://www.udemy.com/course/git-and-github-bootcamp/
 https://git-scm.com/docs
+https://git-scm.com/docs/git-config
 https://markdown-it.github.io/
 
 
@@ -53,6 +54,12 @@ It does not do anything special, it is just like any other branch.
 HEAD
 The pointer to the current commit in the active branch. It moves with each
 new commit, always representing the latest snapshot of the branch.
+
+It is a text file that keeps track of where the HEAD points. If it contains
+refs/heads/master, this means that HEAD is pointing to the master branch.
+
+In detached HEAD, the HEAD file contains a commit hash instead of a branch
+reference.
 
 
 Merge
@@ -262,3 +269,51 @@ By default, the git push command doesn't transfer tags to remote servers. If
 you have  a lot of tags that you want to push up at once, you can use the 
 --tags option to the git push command. This will transfer all of your tags to 
 the remote server that are not already there.
+
+
+Refs Folder
+Inside of refs, you'll find a heads directory. refs/heads contain one file 
+per branch in a repository. Each file is named after a branch and contains the
+hash of the commit at the tip of the branch.
+
+For example refs/heads/master contains the commit hash of the last commit on
+the master branch.
+
+Refs also contains a refs/tags folder which contains one file for each tag in 
+the repo.
+
+
+Objects Folder
+The objects directory contains all the repo files. This is where Git stores the
+backups of files, the commits in a repo, and more.
+
+The files are all compressed and encrypted, so they won't look like much.
+
+
+Git Database
+Got os a key-value data store. We can insert any kind of content into a Git
+repository, and Git will hand us back a unique key we can later use to 
+retrieve that content.
+
+These keys that we get back are SHA-1 checksums.
+
+
+Blobs
+Git blobs (binary large object) are the object type Git uses to store the 
+contents of files in a given repository. Blobs don't even include the 
+filenames of each file or any other data. They just store the contents of a 
+file.
+
+
+Trees
+Trees are Git object used to store the contents of a directory. Each tree
+contains pointers that can  refer to blobs and to other trees.
+
+Each entry in a tree contains the SHA-1 hash of a blob or tree, as well as the
+mode, type, and filename.
+
+
+Commits
+Commit objects combine a tree object along with information about the context
+that led to the current tree. Commits store a reference to parent commit(s),
+the author, the commiter, and the commit message.
