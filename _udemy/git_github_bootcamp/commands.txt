@@ -195,6 +195,18 @@ git restore --staged <filename>
 Unstages the file, keeping its changes in the working directory.
 
 
+git reset <commit-hash>
+Resets the current branch to the specified commit without changing files.
+
+
+git reset --hard <commit-hash>
+Resets to the specified commit and discards all working directory changes.
+
+
+git revert <commit-hash>
+Creates a new commit that undoes the changes from the specified commit.
+
+
 git clone <url>
 Creates a local copy of a remote repository.
 

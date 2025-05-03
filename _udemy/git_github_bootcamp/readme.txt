@@ -120,6 +120,34 @@ reference.
 HEAD points to master, not the commit hash.
 
 
+Git Reset
+Suppose you've just made a couple of commits on the master branch, but you 
+actually meant to make them on a separate branch instead. To undo those commits
+you can use git reset
+
+This will reset the repo back to a specific commit. The commits are gone.
+
+
+Git Revert
+This is similar to git reset in that they both undo changes, but they 
+accomplish it in different ways.
+
+Reset actually moves the branch pointer backwards, eliminating commits.
+
+Revert instead creates a brand new commit which reverses/undos the changes from
+a commit. Because it results in a new commit, you will b prompted to enter a 
+commit message.
+
+Both reset and revert help us reverse changes, but there is a significant
+difference when it comes to collaboration.
+
+If you want to reverse some commits that other people already have on their
+machines, you should use revert.
+
+If you want to reverse commits that you havne't shared with others, use reset
+and no one will ever known.
+
+
 Remote
 Before pushing to Github, we need to tell Git about the remote repository on
 Github. A "destination" needs to be setup to push to.
