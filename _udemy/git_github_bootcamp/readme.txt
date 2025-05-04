@@ -6,70 +6,60 @@ https://markdown-it.github.io/
 
 
 Version Control System
-Software that tracks and manages changes to files over time. Generally, it
-allows users to revisit earlier versions of the files, compare changes between
-versions, undo changes, etc.
+Software that tracks and manages file changes over time. It allows users to
+revisit earlier versions, compare changes, undo changes, and more.
 
 
 Git Bash
-Default shell for Linux and Mac. Git was designed to run on a Unix-based
-interface (like Bash).
+A Unix-like shell provided for Windows. Git was designed for Unix-based shells
+(like Bash), so Git Bash offers that experience on Windows.
 
-Windows comes with a different default command-line interface called Command
-Prompt, which is not Unix-based.
-
-Git Bash is a tool that emulates a Bash experience on a Windows machine.
+Windows’ default CLI (Command Prompt) is not Unix-based, which is why Git Bash
+is used instead.
 
 
 Repository
-A Git "Repo" is a workspace that tracks and manages files within a folder.
+A Git repository ("repo") is a tracked folder. Git monitors files within it.
 
 
 Staging Area
-A place where changes are gathered before committing. It allows you to review
-and organize changes before saving them in the repository.
+A place to prepare and review changes before committing them to the repository.
 
 
 Atomic Commits
-When possible, a commit should encompass a single feature, or fix. In other
-words try to keep each commit focused on a single thing.
+Each commit should represent a single feature or fix. Keep commits focused.
 
 
 Amending Commits
-Use git commit --amend to modify the last commit. This lets you update the
-commit message or include additional changes without creating a new commit.
+Use git commit --amend to modify the last commit — either the message or the
+contents — without creating a new commit.
 
 
 Branches
-Branches allow multiple versions of a project to exist simultaneously. They
-help in developing new features or fixing bugs without affecting the main code.
+Branches allow parallel development. They let you build features or fix bugs
+without impacting the main codebase.
 
 
 The Master Branch
-In git, we are always working on a branch. The default branch name is master.
-
-It does not do anything special, it is just like any other branch.
+The default Git branch is called master (or main in newer setups).
+It behaves like any other branch — there’s nothing special about it.
 
 
 HEAD
-The pointer to the current commit in the active branch. It moves with each
-new commit, always representing the latest snapshot of the branch.
+A reference to the current commit in the active branch. It updates with each
+new commit.
 
-It is a text file that keeps track of where the HEAD points. If it contains
-refs/heads/master, this means that HEAD is pointing to the master branch.
-
-In detached HEAD, the HEAD file contains a commit hash instead of a branch
-reference.
+If HEAD contains refs/heads/master, it's pointing to the master branch.
+In a detached HEAD, it points to a commit hash directly instead of a branch.
 
 
 Merge
-Combines the history of both branches, integrating their changes into a single
-branch. If there are conflicts, Git will prompt you to resolve them.
+Combines changes from one branch into another. If conflicts occur, Git prompts
+you to resolve them.
 
 
 Conflict Markers
-When Git can't automatically merge changes, it adds conflict markers to show
-conflicting sections in a file.
+Git marks conflict areas in files when it can't auto-merge:
 
     <<<<<<< HEAD  
     your changes  
@@ -79,11 +69,10 @@ conflicting sections in a file.
 
 
 Changes
-Every line that changed between the two files is marked with either a + or 
-- symbol. 
+Git shows diffs using + and -:
 
-Lines that begin with - come from file A
-Lines that begin with + come from file B
+    Lines with - come from the original version.
+    Lines with + are the new version.
 
     @@ -49,4 +49,9 @@ branches after they've been integrated.
 
@@ -92,136 +81,83 @@ Lines that begin with + come from file B
 
 
 Stashing
-Git provides an easy way of stashing uncommmited changes so that we can return
-to them later, without having to make unnecessary commits. This affects staged
-and unstaged changes.
+Temporarily save (stash) uncommitted changes without committing them.
+Useful when switching tasks. Affects both staged and unstaged changes.
 
-You can add multiple stashes onto the stack of stashes. They will all be 
-stashed in the order you added them.
+You can stash multiple times — Git maintains a stack of stashes.
 
 
 Checkout
-The git checkout command is thought to be overloaded, which is what lead to the
-addition of the git switch and git restore commands. We can use checkout to 
-create branches, switch to new branches, restore files, and undo history.
+git checkout can be used to switch branches, restore files, or create new
+branches. Its overloaded use led to the introduction of git switch and
+git restore.
 
 
-Detached HEAD  
-A state where HEAD points to a specific commit, not a branch. Changes made here
-won’t belong to any branch unless explicitly saved.
+Detached HEAD 
+Occurs when HEAD points to a specific commit, not a branch.
+Commits made here are not part of any branch unless explicitly saved.
 
-HEAD is usally a pointer to the current branch reference. The branch reference 
-is a pointer to the last commit made on a particular branch.
-
-When we make a new commit, the branch pointer is updated to reflect the new 
-commit. The HEAD remains the same, because it's pointing at the branch 
-reference.
-
-HEAD points to master, not the commit hash.
+HEAD usually points to a branch reference, which in turn points to a commit.
 
 
 Git Reset
-Suppose you've just made a couple of commits on the master branch, but you 
-actually meant to make them on a separate branch instead. To undo those commits
-you can use git reset
+Used to undo commits. Moves the branch pointer backward to a prior commit.
+Removes the commits from history.
 
-This will reset the repo back to a specific commit. The commits are gone.
+Useful when commits haven’t been shared with others. The commits are gone.
 
 
 Git Revert
-This is similar to git reset in that they both undo changes, but they 
-accomplish it in different ways.
+Undoes changes by creating a new commit that reverses a previous one.
 
-Reset actually moves the branch pointer backwards, eliminating commits.
+Unlike reset, it preserves history. Ideal for undoing shared commits.
 
-Revert instead creates a brand new commit which reverses/undos the changes from
-a commit. Because it results in a new commit, you will b prompted to enter a 
-commit message.
-
-Both reset and revert help us reverse changes, but there is a significant
-difference when it comes to collaboration.
-
-If you want to reverse some commits that other people already have on their
-machines, you should use revert.
-
-If you want to reverse commits that you havne't shared with others, use reset
-and no one will ever known.
+Use reset for private changes; revert for public ones.
 
 
 Remote
-Before pushing to Github, we need to tell Git about the remote repository on
-Github. A "destination" needs to be setup to push to.
-
-In Git these "destinations" are referred to as remotes. Each remote is simply a
-URL where the hosted repository is.
+A remote is a Git "destination" (URL) for syncing repositories — e.g., GitHub.
+Before pushing, configure a remote with git remote add.
 
 
 Origin
-This is a conventional Git remote name, but it is not at all special. It is
-just a name for a URL. 
-
-When we clone a Github repo, the default remote name setup is called origin.
-It can be canged but most people leave it.
+By convention, origin is the default name for a remote after cloning.
+It’s just a label and can be renamed.
 
 
-Remote Tracking Branch Reference
-A reference to the state of the master branch on the remote. Like a bookmark
-pointing to the last known commit on the master branch on origin.
-
-These references are read-only for the local repository and cannot be moved or
-changed directly; they only update when you interact with the remote repository,
-typically via commands like git fetch, git pull, or git push.
+Remote Tracking Branches
+Local references (like origin/master) to remote branches. These are updated
+by fetch/pull/push but are read-only locally.
 
 
 Fetching
-Allows us to download changes from a remote repository, BUT those changes will 
-not be automatically integrated into our working files.
-
-It lets you see what others have bene working on, without having to merge those
-changes into your local repo.
-
-Think of it as "please go and get the latest information from Github, but don't
-screw up my working directory."
+Downloads remote updates, but doesn't merge them into your working branch.
+Useful for reviewing changes without affecting your code.
 
 
 Pulling
-Like fetch but updates the HEAD branch with whatever changes are retrieved from
-the remote.
-
-Think of as "go and download data from Github AND immediately update my local 
-repo with those changes"
+Fetches and integrates remote changes into your current branch.
 
 
-Github Gists
-A simple way to share code snippets and useful fragments with others. Gists are
-much easier to create, but offer far fewer features than a typical repository.
+GitHub Gists
+Used to share code snippets or short scripts. Easier to create than full repos
+but with fewer features.
 
 
-Github Pages
-Public webpages that are hosted and published via Github. It does not support
-server-side code like Python, Ruby, or Node. Just HTML/CSS/JS.
+GitHub Pages
+Public webpages that are hosted and published via Github. (HTML/CSS/JS only).
+No server-side code.
 
+    1 user site
+    username.github.io
 
-User Site
-There is one user site per Github account. This is where you could host a 
-portfolio site or some form of personal website. The default url is based on
-your Github username, following this pattern: username.github.io though you 
-can change this.
-
-
-Project Sites
-You get unlimited project sites, each Github repo can have a corresponding
-hosted website. It's as simple as telling Github which specific branch 
-contains the web content. The default urls follow this pattern:
-username.github.io/repo-name
+    unlimited project sites
+    username.github.io/repo-name
 
 
 Centralized Workflow
-Everyone works on master / main. AKA The most basic workflow possible.
-
-The simplest collaborative workflow is to have everyone work on a single
-branch. It is straightforward and can work for small teams, but it has quite a
-few shortcomings.
+Everyone commits directly to main/master. Simple but prone to conflicts in
+larger teams.
 
 
 Feature Branches
@@ -229,155 +165,113 @@ Rather than working on directly on the master, all new development should be
 done on separate branches.
 
 Treats master branch as the official project history.
-Multiple teamsmates can collaborate on a single feature and share code back and
-forth without polluting the master branch.
-Master branch won't contain broken code (unless someone messes it up)
+Allows for collaboration on a single feature to share code back and forth
+without polluting the master branch.
 
 
 Fork & Clone
-This workflow is different from the previous two. Instead of just one
-centralized Github repository, every developer has their own Github repository
-in addition to the "main" repo. Developers make changes and push to their own
-forks before making pull requests.
-
-It's commonly used on large open-source projects where there may be thousands
-of contributors with only a couple maintainers.
+Common in open-source. Each contributor forks the main repo, clones their fork,
+works locally, then submits a pull request to the original repo.
 
 
 Forking
-Github (and similar tools) allow us to create personal copies of other peoples'
-repositories. We call those copes a "fork" of the original.
-
-When we fork a repo, we're making a copy of the repo via Github.
-
-Like pull requests, forking is not a Git feature. The ability to fork is 
-implemented by Github.
+Creates a copy of another user’s GitHub repo under your account.
+Not a Git feature — it's GitHub-specific.
 
 
 Pull Requests
-These are a feature built in to products like Github & Bitbucket. They are NOT
-native to Git itself.
+A feature built in to products like Github & Bitbucket. NOT native to Git 
+itself.
 
-They allow developers to alert team-members to new work that needs to be 
-reviewed. They provide a mechanism to approve or reject the work on a given
-branch. They also help facilitate discussion and feedback on the specified
-commits.
+Allows developers to alert team-members to new work that needs to be reviewed.
+Provides a mechanism to approve or reject the work on a given branch. Also 
+helps facilitate discussion and feedback on the specified commits.
 
 
 Rebasing
-Instead of regular merges which may muddy the history we can rebase the feature
-branch onto the master branch. This moves the entire feature branch so that it
-begins at the tip of the master branch. All work is still there but we have 
-re-written history.
+Rewrites commit history to produce a cleaner project history.
 
-Instead of using a merge commit, rebasing rewrites history by creating new 
-commits for each of the original feature branch commits.
+Instead of merging, rebasing moves the feature branch to begin at the latest
+commit of the base branch, replaying changes one by one.
 
-Never rebase commits that have been shared with others. If you have already 
-pushed commits up to Github... do not rebase them unless you are positive
-no one on the team is using those commits.
+Warning: Never rebase commits that have been pushed/shared.
 
 
 Git Tags
-Tags are pointers that refer to particular points in Git history. We can mark
-a particular moment in time with a tag. Tags Are often used to mark version 
-releases in projects (v4.1.0, v4.1.1, etc)
+Tags are permanent labels pointing to specific commits (e.g. v1.0.0).
 
-Think of tags as branch references that do not change. Once a tag is created, 
-it always refers to the same commit. It's just a label for a commit.
-
-lightweight tags are just a name / label that points to a particular commit.
-
-annotated tags store extra meta data including the author's name and email,
-the date, anda tagging message (like a commit message)
+    Lightweight tags: simple labels
+    Annotated tags: include metadata like author and message
 
 
 Pushing Tags
-By default, the git push command doesn't transfer tags to remote servers. If
-you have  a lot of tags that you want to push up at once, you can use the 
---tags option to the git push command. This will transfer all of your tags to 
-the remote server that are not already there.
+By default, git push doesn't push tags to remote servers. Use git push --tags
+to upload all tags at once.
 
 
 Refs Folder
-Inside of refs, you'll find a heads directory. refs/heads contain one file 
-per branch in a repository. Each file is named after a branch and contains the
-hash of the commit at the tip of the branch.
+Contains pointers to branches and tags:
 
-For example refs/heads/master contains the commit hash of the last commit on
-the master branch.
+    refs/heads/: one file per branch
+    refs/tags/: one file per tag
 
-Refs also contains a refs/tags folder which contains one file for each tag in 
-the repo.
+Each file holds the commit hash for that reference.
 
 
 Objects Folder
-The objects directory contains all the repo files. This is where Git stores the
-backups of files, the commits in a repo, and more.
-
-The files are all compressed and encrypted, so they won't look like much.
+Git’s object store. This is where Git stores the backups of files, the commits
+in a repo, and more. Contains all data: blobs, trees, commits, and more.
+Files are compressed and encrypted.
 
 
 Git Database
-Got os a key-value data store. We can insert any kind of content into a Git
-repository, and Git will hand us back a unique key we can later use to 
-retrieve that content.
-
-These keys that we get back are SHA-1 checksums.
+Git is a key-value store. Content is stored with a SHA-1 hash as its key.
 
 
 Blobs
 Git blobs (binary large object) are the object type Git uses to store the 
-contents of files in a given repository. Blobs don't even include the 
-filenames of each file or any other data. They just store the contents of a 
-file.
+contents of files in a given repository. Blobs don't include the filenames of
+each file or any other data. They just store the contents of a file.
 
 
 Trees
 Trees are Git object used to store the contents of a directory. Each tree
-contains pointers that can  refer to blobs and to other trees.
+contains pointers that can refer to blobs and to other trees.
 
-Each entry in a tree contains the SHA-1 hash of a blob or tree, as well as the
-mode, type, and filename.
+Each entry includes the SHA-1, mode, type, and filename.
 
 
 Commits
-Commit objects combine a tree object along with information about the context
-that led to the current tree. Commits store a reference to parent commit(s),
-the author, the commiter, and the commit message.
+Store:
+    A tree reference
+    Parent commits
+    Author & committer info
+    Commit message
 
 
 Reflogs
-Git keeps a record of when the tips of branches and other references were 
-updated in the repo.
+Tracks updates to references (branches, HEAD, etc.).
 
-We can view and update these reference logs using the git reflog command.
-
-Git only keeps reflogs on your local activity. They are not shared by 
-collaborators. Reflogs also expire. Git cleans out old entries after around
-30 days, though this can be configured.
+Only stored locally. Not shared. Old entries expire after ~30 days.
 
 
 Reflog references
-We can access specific git refs with name@{qualifier}. We can use this syntax
-to access specific ref pointers and can pas them to other commands including
-checkout, reset, and merge.
+Use name@{n} or name@{date} to reference previous states.
+Example: HEAD@{1} refers to the previous position of HEAD.
+
+Can be passed to other commands including checkout, reset, and merge.
 
 
 Global Git Config
-Git looks for the global config file at either ~/.gitconfig or 
-~/.config/git/config. Any confirguration variables that we change in the file
-will be applied across all Git repos.
+Git looks in ~/.gitconfig or ~/.config/git/config for global settings.
 
-We can also alter configuration variables from the command line if preferred.
+Any confirguration variables changed in the file will be applied across all Git
+repos.
 
 
 Adding Aliases
-We can easily set up Git aliases to make our Git experience a bit simpler and 
-faster.
+Use Git aliases for custom commands.
+Examples:
 
-For example, we could define an alias "git ci" instead of having to type 
-"git commit"
-
-Or, we could define a custom git lg command that prints out a custom formatted
-commit log.
+    git config --global alias.ci commit
+    git config --global alias.lg "log --oneline --graph"
