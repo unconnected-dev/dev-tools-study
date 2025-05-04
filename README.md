@@ -18,3 +18,9 @@ This repository contains exercises and examples for Git and Github practice.
 #### Reference
 
 - [Git and Github Bootcamp](https://www.udemy.com/course/git-and-github-bootcamp/)
+
+---
+#### Links
+- [Git Docs](https://git-scm.com/docs)
+- [Git Config](https://git-scm.com/docs/git-config)
+- [Markdown Editor](https://markdown-it.github.io/)
