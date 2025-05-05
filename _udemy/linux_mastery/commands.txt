@@ -1,3 +1,28 @@
 which <command>
 Displays the full path of the executable that would run for the given command,
 based on directories listed in your $PATH environment variable.
+
+
+man <command>
+Displays the manual (help) page for a command, showing its usage, options, 
+and descriptions. Useful for getting detailed information about commands.
+
+    [THING]
+    Optional item. You can include it or leave it out.
+
+    <THING>
+    Required item. Must be provided.
+
+    THING …
+    Item can be repeated any number of times.
+
+    THING1 | THING2
+    Choose one item or the other, not both.
+
+    THING (italicized)
+    Placeholder. Replace with the actual value needed.
+
+
+help <command>
+Displays brief help and usage information for a shell builtin command.
+Only works with bash builtins (e.g., cd, echo, export).
