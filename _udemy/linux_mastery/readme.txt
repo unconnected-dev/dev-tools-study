@@ -37,3 +37,19 @@ Pipelines
 command1 | command2
 Sends the output of command1 as input to command2. Useful for chaining
 commands together to process data step by step.
+
+
+Aliases
+
+~/.bash_aliases
+A hidden file in your home directory where you can save custom aliases.
+
+Example entry:
+alias ll='ls -l --color=auto'
+
+To apply changes:
+Run `source ~/.bash_aliases` or restart the terminal.
+
+Note:
+Make sure your ~/.bashrc contains this line to load aliases:
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases

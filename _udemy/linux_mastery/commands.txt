@@ -51,3 +51,23 @@ terminal device (usually another user’s terminal or a second session).
 date | cut --delimiter " " --fields 5 1> time.txt
 Gets the current date, extracts the 5th field (usually the time), and writes 
 it to time.txt. Standard output (stdout) is redirected using file descriptor 1.
+
+
+tty
+Prints the file name of the terminal connected to standard input. Useful for 
+knowing which terminal device (like /dev/pts/0) you're using.
+
+
+date | tee fulldate.txt | cut --delimiter=" " --field=1 1> day.txt
+Gets the current date. `tee` saves the full date to fulldate.txt and also 
+passes it on. `cut` extracts the first field (weekday) and saves it to day.txt.
+
+
+xargs
+Reads items from standard input and passes them as arguments to a command.
+Useful for handling output from one command as input to another.
+
+
+date | xargs echo "hello"
+Appends the output of `date` as arguments to the `echo "hello"` command. 
+The result is: hello <date output>. `xargs` inserts the date after "hello".
