@@ -26,3 +26,28 @@ and descriptions. Useful for getting detailed information about commands.
 help <command>
 Displays brief help and usage information for a shell builtin command.
 Only works with bash builtins (e.g., cd, echo, export).
+
+
+cat 1>> test_file.txt
+Appends standard output (stdout) from `cat` to test_file.txt. The `1>>` means 
+"append stdout" (file descriptor 1) rather than overwrite.
+
+
+cat 1>> test_file.txt 2>> error_file.txt
+Appends standard output (stdout) to test_file.txt and appends standard error 
+(stderr) to error_file.txt. Useful for saving both outputs separately.
+
+
+cat 0<input.txt
+Reads standard input (stdin) for `cat` from input.txt using file descriptor 0.
+Same as `cat < input.txt`, but explicitly uses fd 0.
+
+
+cat 0< input.txt > /dev/pts/2
+Reads input from input.txt (stdin) and sends output to /dev/pts/2, which is a 
+terminal device (usually another user’s terminal or a second session).
+
+
+date | cut --delimiter " " --fields 5 1> time.txt
+Gets the current date, extracts the 5th field (usually the time), and writes 
+it to time.txt. Standard output (stdout) is redirected using file descriptor 1.

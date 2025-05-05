@@ -19,6 +19,20 @@ Long option, more descriptive, typically words separated by hyphens.
 Example: `--all` to show all files in `ls`.
 
 
+Command Arguments
+Values passed to a command after its name, used to modify behavior.
+Example: `ls -l /home` → `-l` and `/home` are arguments.
+
+Standard Input (stdin)
+Data the command reads from, usually from keyboard or piped input (fd 0).
+
+Standard Output (stdout)
+Normal output of a command, usually shown on the screen (fd 1).
+
+Standard Error (stderr)
+Error messages from a command, also shown on the screen (fd 2).
+
+
 Pipelines
 command1 | command2
 Sends the output of command1 as input to command2. Useful for chaining
