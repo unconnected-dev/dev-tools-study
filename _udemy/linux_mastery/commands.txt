@@ -71,3 +71,27 @@ Useful for handling output from one command as input to another.
 date | xargs echo "hello"
 Appends the output of `date` as arguments to the `echo "hello"` command. 
 The result is: hello <date output>. `xargs` inserts the date after "hello".
+
+
+pwd
+Prints the current working directory (the full path of where you are in the 
+filesystem). Useful to know your location in the terminal.
+
+
+file <filename>
+Examines a file and tells you its type (text, binary, image, etc.) based on 
+its content, not the file extension.
+
+Example:
+file photo.jpg
+Might return: JPEG image data
+
+
+mkdir <directory_name>
+Creates a new directory with the given name in the current location or path.
+
+Example:
+mkdir new_folder
+
+To create parent directories as needed:
+mkdir -p parent/child
