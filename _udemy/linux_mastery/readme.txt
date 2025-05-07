@@ -1,4 +1,4 @@
-
+https://packages.ubuntu.com
 
 
 $PATH 
@@ -156,3 +156,57 @@ locate
 - Syntax: locate file.txt
 
 Use `find` for precision and live results, `locate` for quick name-based lookup.
+
+
+
+nano <filename>
+Opens a simple terminal-based text editor to create or edit files.
+
+Basic controls (shown at bottom of screen):
+^O (Ctrl+O)  Write/save file
+^X (Ctrl+X)  Exit nano
+^K           Cut line
+^U           Paste line
+^W           Search
+^G           Help
+
+Example:
+nano notes.txt
+Opens or creates notes.txt for editing
+
+
+
+Repository
+A storage location (local or remote) that contains software packages.
+
+Types:
+- Official: Maintained by distro (e.g. Ubuntu, Fedora)
+- Third-party: External sources (e.g. PPAs, custom repos)
+- Local: Used for offline or internal package management
+
+Package managers (apt, yum, dnf, pacman) download from repositories.
+
+Example:
+sudo apt update
+Refreshes package lists from configured repositories
+
+
+
+Package Manager
+A tool that automates installing, upgrading, configuring, and removing 
+software packages on Linux.
+
+It handles:
+- Dependency resolution
+- Downloading from repositories
+- Version control
+
+Common package managers:
+apt     (Debian/Ubuntu)
+dnf     (Fedora)
+yum     (CentOS/RHEL)
+pacman  (Arch)
+
+Example:
+sudo apt install curl
+Installs the 'curl' package and its dependencies

@@ -211,3 +211,133 @@ Key options:
 -size       Match by file size (+/-)
 -exec       Run command on each result
 -o          Logical OR to combine conditions
+
+
+sudo find / -type f -size +100k -size -5M -exec cp {} ~/Desktop/copy_dir \;
+Finds all files larger than 100 KB and smaller than 5 MB, then copies them 
+to ~/Desktop/copy_dir. `sudo` allows access to system-wide locations.
+
+Breakdown:
+-type f           Only files
+-size +100k       Larger than 100 KB
+-size -5M         Smaller than 5 MB
+-exec cp {} ...   Copies each matched file to the target directory
+
+{} is replaced with each file path found.
+\; ends the exec command.
+
+
+sudo find / -type f -size +100k -size -5M -ok cp {} ~/Desktop/copy_dir \;
+Same as -exec, but `-ok` prompts for confirmation before running the command 
+on each file. Safer for bulk operations.
+
+Use -ok instead of -exec if you want to review each action:
+-type f           Only files
+-size +100k       Larger than 100 KB
+-size -5M         Smaller than 5 MB
+-ok cp {} ...     Asks you (y/n) before copying each file
+
+Example prompt:
+< cp ... /path/to/file > ? 
+
+
+tac <filename>
+Displays the contents of a file in reverse order — **last line first**, 
+first line last. (It's `cat` spelled backwards.)
+
+Example:
+tac notes.txt
+Shows notes.txt from bottom to top
+
+
+
+rev <filename>
+Reverses the characters in each **line** of a file, not the order of lines.
+
+Example:
+rev words.txt
+If a line is "hello", output is "olleh"
+
+Also works with input:
+echo "abc" | rev
+Outputs: cba
+
+
+less <filename>
+Opens a file for **paged viewing**, one screen at a time. Useful for reading 
+long files without loading the whole thing into memory.
+
+Navigation keys:
+SPACE       Scroll forward
+b           Scroll backward
+q           Quit
+G           Go to end
+g           Go to start
+/pattern    Search for a pattern
+
+Example:
+less /var/log/syslog
+
+
+head <filename>
+Displays the **first 10 lines** of a file by default.
+
+Options:
+-n <number>   Show a specific number of lines
+
+Examples:
+head notes.txt
+Shows first 10 lines of notes.txt
+
+head -n 5 data.csv
+Shows first 5 lines of data.csv
+
+
+tail <filename>
+Displays the **last 10 lines** of a file by default.
+
+Options:
+-n <number>   Show a specific number of lines
+-f            Follow the file — shows new lines as they are added
+
+Examples:
+tail log.txt
+Shows last 10 lines of log.txt
+
+tail -n 20 notes.txt
+Shows last 20 lines
+
+tail -f /var/log/syslog
+Live view of new log entries as they appear
+
+
+
+uname
+Displays system information such as kernel name and architecture.
+
+Options:
+-a   Show all system info
+-r   Show kernel release
+-m   Show machine hardware name (e.g., x86_64)
+
+Examples:
+uname -a
+Shows full system info
+
+uname -r
+Shows kernel version
+
+
+lsb_release
+Displays Linux Standard Base and distribution-specific information.
+
+Options:
+-a   Show all available details
+-d   Show description (e.g., Ubuntu 22.04 LTS)
+-i   Show distributor ID
+-r   Show release number
+-c   Show codename
+
+Example:
+lsb_release -a
+Shows full OS release info (distro, version, codename)
