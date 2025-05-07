@@ -139,3 +139,20 @@ Common glob patterns:
 [abc] Matches one character from the set a, b, or c
 
 Globbing doesn’t search recursively (use find for that).
+
+
+find vs locate
+
+find
+- Searches the filesystem in real time
+- Slower, but always up to date
+- Powerful filters: name, type, size, time, exec, etc.
+- Syntax: find /path -name "file.txt"
+
+locate
+- Searches a pre-built database (from `updatedb`)
+- Much faster, but may be outdated if database isn’t refreshed
+- Limited filtering (mostly name-based)
+- Syntax: locate file.txt
+
+Use `find` for precision and live results, `locate` for quick name-based lookup.

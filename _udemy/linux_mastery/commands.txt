@@ -95,3 +95,119 @@ mkdir new_folder
 
 To create parent directories as needed:
 mkdir -p parent/child
+
+
+rmdir <directory_name>
+Removes an **empty** directory. If the directory has files or subdirs, it 
+won’t be deleted.
+
+Example:
+rmdir old_folder
+
+To remove multiple empty directories:
+rmdir dir1 dir2 dir3
+
+
+rm -ri <directory_name>
+Recursively deletes a directory and its contents, but **asks for confirmation**
+before deleting each file or subdirectory.
+
+Useful for safer deletions:
+r = recursive, i = interactive prompt
+
+Example:
+rm -ri backup_folder
+
+
+cp <source> <destination>
+Copies files or directories from one location to another.
+
+Examples:
+cp file1.txt backup.txt
+Copies file1.txt to backup.txt
+
+cp file1.txt dir/
+Copies file1.txt into directory dir/
+
+cp -r dir1/ dir2/
+Copies directory dir1 and all its contents into dir2 (r = recursive)
+
+
+
+mv <source> <destination>
+Moves or renames files and directories.
+
+Examples:
+mv file.txt archive/
+Moves file.txt into the archive directory
+
+mv oldname.txt newname.txt
+Renames oldname.txt to newname.txt
+
+mv dir1/ dir2/
+Moves dir1 into dir2 (can also be used to rename directories)
+
+
+locate <pattern>
+Quickly finds files and directories matching the pattern by searching a 
+pre-built index (faster than `find`).
+
+Example:
+locate notes.txt
+Shows all paths containing notes.txt
+
+To update the index (needed for recent changes):
+sudo updatedb
+
+
+locate --existing --follow <pattern>
+
+--existing
+Only shows results for files that still exist (filters out deleted ones).
+
+--follow
+Follows symbolic links during the database update (not typically used with 
+locate itself, but with updatedb). Some implementations may ignore this.
+
+Example:
+locate --existing report.txt
+Shows only existing paths to report.txt
+
+
+find <path> <options> <tests> <actions>
+Searches for files and directories in a directory hierarchy.
+
+Examples:
+find . -name "*.txt"
+Finds all .txt files in the current directory and subdirectories
+
+find /var -type f -size +10M
+Finds files larger than 10 MB in /var
+
+find . -type f -exec rm {} \;
+Finds all files and deletes them (use with caution)
+
+Common options:
+-name        Match by filename
+-type        f = file, d = directory
+-size        Match by file size (+/- for greater/less)
+-exec        Run a command on each result
+-maxdepth    Limit how many directories to check down
+
+
+find <path> <options> <tests> <actions>
+Searches directories for files using various conditions.
+
+Examples:
+find . -name "*.txt" -o -name "*.md"
+Finds files ending in .txt OR .md
+
+find /etc \( -name "*.conf" -o -name "*.cfg" \)
+Finds .conf OR .cfg files (grouped with escaped parentheses)
+
+Key options:
+-name       Match by filename
+-type       f = file, d = directory
+-size       Match by file size (+/-)
+-exec       Run command on each result
+-o          Logical OR to combine conditions
