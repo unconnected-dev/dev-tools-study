@@ -210,3 +210,68 @@ pacman  (Arch)
 Example:
 sudo apt install curl
 Installs the 'curl' package and its dependencies
+
+
+
+sudo apt update
+(or sudo apt-get update)
+
+This updates the local package **cache**, which is a list of available 
+packages and their versions from all configured repositories.
+
+Without updating the cache:
+- `apt upgrade` or `apt install` might install outdated versions
+- The system won’t know about newly available packages or updates
+
+Always run:
+sudo apt update
+before:
+sudo apt upgrade
+or
+sudo apt install <package>
+
+
+
+sudo apt-get remove <package>
+Removes an installed package, but **keeps its configuration files**.
+
+Example:
+sudo apt-get remove firefox
+Removes Firefox, but user settings and configs remain
+
+To remove completely (including config files):
+sudo apt-get purge firefox
+
+
+sudo apt-get autoremove
+Removes packages that were automatically installed to satisfy dependencies 
+but are no longer needed.
+
+Useful after removing large packages or desktops.
+
+Example:
+sudo apt-get autoremove
+Frees up space by cleaning leftover dependencies
+
+
+sudo apt-get clean
+Deletes all cached package files in /var/cache/apt/archives
+
+Frees disk space by removing downloaded .deb files that are no longer needed
+
+Safe to run — doesn’t affect installed packages
+
+Example:
+sudo apt-get clean
+Clears out the package cache completely
+
+
+sudo apt-get autoclean
+Removes **only outdated** .deb package files from the cache that can no 
+longer be downloaded or installed.
+
+Frees some disk space, safer and more selective than `clean`.
+
+Example:
+sudo apt-get autoclean
+Removes obsolete package files but keeps current ones

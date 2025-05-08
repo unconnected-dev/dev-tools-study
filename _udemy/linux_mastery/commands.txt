@@ -341,3 +341,162 @@ Options:
 Example:
 lsb_release -a
 Shows full OS release info (distro, version, codename)
+
+
+sudo apt-get update
+Fetches the latest package lists from repositories (no installs/changes yet)
+
+sudo apt-get upgrade
+Installs available updates for installed packages (no removals)
+
+sudo apt update
+Same as `apt-get update`, but with a friendlier interface and progress bar
+
+sudo apt upgrade
+Same as `apt-get upgrade`, with the same improved UI
+
+Note:
+- `apt` is newer, more user-friendly; preferred for interactive use
+- `apt-get` is older, more stable for scripts and automation
+
+
+
+sort <filename>
+Sorts lines of a file alphabetically or numerically.
+
+Options:
+-n   Sort numerically
+-r   Reverse order
+-k   Sort by specific column
+-t   Define a custom field separator
+-u   Unique — removes duplicate lines after sorting
+
+Examples:
+sort names.txt
+Sorts lines alphabetically
+
+sort -n numbers.txt
+Sorts numbers in ascending order
+
+sort -t "," -k 2 data.csv
+Sorts CSV by second column
+
+sort -u names.txt
+Sorts names and removes duplicates
+
+sort -n -u numbers.txt
+Sorts numbers and keeps only unique values
+
+
+ls -lh | sort -k 5hr
+Lists files with human-readable sizes, then sorts by **file size** 
+(from largest to smallest).
+
+Explanation:
+-lh         Long listing with human-readable sizes (e.g., 1K, 5M, 2G)
+sort
+-k 5        Sort by the 5th column (size)
+-h          Handle human-readable sizes correctly (e.g., K, M, G)
+-r          Reverse order (largest first)
+
+This is useful for quickly identifying large files in a directory.
+
+
+tar
+Used to archive (combine) multiple files/directories into one file, and to 
+compress/decompress them.
+
+Common options:
+-c   Create an archive
+-x   Extract files from archive
+-f   Use archive file name
+-v   Verbose (show progress)
+-z   Use gzip compression
+-j   Use bzip2 compression
+
+Examples:
+tar -cvf archive.tar folder/
+Creates archive.tar from folder/
+
+tar -czvf archive.tar.gz folder/
+Creates compressed gzip archive
+
+tar -xvf archive.tar
+Extracts archive.tar in current directory
+
+tar -xzvf archive.tar.gz
+Extracts gzip-compressed archive
+
+
+tar -tf <archive>
+Lists the contents of a tar archive **without extracting** anything.
+
+Options:
+-t   List files in the archive
+-f   Specify the archive file
+
+Examples:
+tar -tf archive.tar
+Lists contents of archive.tar
+
+tar -ztf archive.tar.gz
+Lists contents of a gzip-compressed archive
+
+
+gzip <file>
+Compresses a file using gzip (creates <file>.gz and removes original)
+
+gunzip <file>.gz
+Decompresses a .gz file
+
+bzip2 <file>
+Compresses a file using bzip2 (creates <file>.bz2 and removes original)
+
+bunzip2 <file>.bz2
+Decompresses a .bz2 file
+
+Notes:
+- gzip is faster, but compresses less
+- bzip2 compresses more, but is slower
+- Both work well with tar: use `tar -z` for gzip and `tar -j` for bzip2
+
+Examples:
+gzip report.txt        → report.txt.gz
+bzip2 report.txt       → report.txt.bz2
+gunzip report.txt.gz   → report.txt
+
+
+gunzip <file>.gz
+Decompresses a gzip-compressed file, restoring the original.
+
+bunzip2 <file>.bz2
+Decompresses a bzip2-compressed file, restoring the original.
+
+Examples:
+gunzip data.csv.gz      → Restores data.csv
+bunzip2 logs.txt.bz2    → Restores logs.txt
+
+Notes:
+- Original compressed file is removed after extraction
+- Use `gzip` or `bzip2` to compress the file again
+
+
+chmod
+Changes permissions of files or directories (read, write, execute).
+
+Syntax:
+chmod [permissions] <file>
+
+Modes:
+- Symbolic: u (user), g (group), o (others), a (all)
+- Numeric: r=4, w=2, x=1 → sum to set permission (e.g., 755)
+
+Examples:
+chmod 755 script.sh
+Owner: rwx, Group: r-x, Others: r-x
+
+chmod u+x file.sh
+Adds execute permission for the user
+
+chmod go-w file.txt
+Removes write permission from group and others
