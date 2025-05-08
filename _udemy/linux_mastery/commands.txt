@@ -500,3 +500,25 @@ Adds execute permission for the user
 
 chmod go-w file.txt
 Removes write permission from group and others
+
+
+crontab
+Schedules recurring tasks using cron (time-based job scheduler).
+
+Common usage:
+crontab -e      Edit the current user’s crontab file
+crontab -l      List current cron jobs
+crontab -r      Remove current user's crontab
+
+Crontab format:
+* * * * * command
+│ │ │ │ │
+│ │ │ │ └── Day of week (0-7, Sun=0 or 7)
+│ │ │ └──── Month (1-12)
+│ │ └────── Day of month (1-31)
+│ └──────── Hour (0-23)
+└────────── Minute (0-59)
+
+Example:
+0 9 * * 1 /home/user/backup.sh
+Runs backup.sh every Monday at 9:00 AM
