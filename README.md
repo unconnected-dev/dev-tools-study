@@ -8,15 +8,22 @@ This repository is a learning hub for ongoing study of basic developer tools, co
 - Practice branching, merging, rebasing, stashing, and conflict resolution
 - Gain familiarity with GitHub tools and collaboration features
 
+### Linux
+- Learn base Linux commands to navigate and manage the file system
+- Understand key concepts like permissions, piping and redirection
+- Practice using tools like grep, find, chmod, cron and basic shell scripting
+
 ---
 #### Reference
 
 - [Git and Github Bootcamp](https://www.udemy.com/course/git-and-github-bootcamp/)
-
+- [Linux Mastery: Master the Linux Command Line](https://www.udemy.com/course/the-complete-javascript-course/)
 ---
 #### Links
 - [Git Docs](https://git-scm.com/docs)
 - [Git Config](https://git-scm.com/docs/git-config)
+- [Ubuntu Packages](https://packages.ubuntu.com)
+- [Crontab](https://crontab.guru)
 - [Markdown Editor](https://markdown-it.github.io/)
 
 ---
