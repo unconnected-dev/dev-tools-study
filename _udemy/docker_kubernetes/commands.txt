@@ -1,0 +1,10 @@
+docker run -p
+- Maps container port to host port
+- Format: -p <host_port>:<container_port>
+- Example: docker run -p 8080:80 nginx  # Access at localhost:8080
+
+
+docker stop
+- Gracefully stops a running container
+- Format: docker stop <container_id or name>
+- Example: docker stop my_container
