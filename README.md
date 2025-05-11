@@ -17,7 +17,7 @@ This repository is a learning hub for ongoing study of basic developer tools, co
 #### Reference
 
 - [Git and Github Bootcamp](https://www.udemy.com/course/git-and-github-bootcamp/)
-- [Linux Mastery: Master the Linux Command Line](https://www.udemy.com/course/the-complete-javascript-course/)
+- [Linux Mastery: Master the Linux Command Line](https://www.udemy.com/course/linux-mastery/)
 ---
 #### Links
 - [Git Docs](https://git-scm.com/docs)
