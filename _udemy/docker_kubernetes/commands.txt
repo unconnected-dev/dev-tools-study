@@ -8,3 +8,14 @@ docker stop
 - Gracefully stops a running container
 - Format: docker stop <container_id or name>
 - Example: docker stop my_container
+
+
+docker run node
+- Runs a container from the official Node.js image
+- Starts an interactive Node.js REPL by default
+- Use -it to interact: docker run -it node
+
+
+docker ps -a
+- Lists all containers (running + stopped)
+- Use plain docker ps to show only running containers
