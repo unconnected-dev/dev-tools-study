@@ -53,3 +53,30 @@ Images are read-only
 Docker build cache
 - Docker uses cached layers to speed up builds
 - If one layer changes, all layers after it are rebuilt
+
+
+Attached vs Detached Mode
+
+
+Attached vs Detached
+- docker run: attached by default (shows output, blocks terminal)
+- docker start: detached by default (runs in background)
+- Use -d with run for detached: docker run -d nginx
+- Use docker attach <name> to connect to running container
+
+
+Attached Mode:
+- Default for `docker run`
+- You see the container’s output in your terminal
+- Terminal is blocked (you can’t type other commands)
+- Exit with Ctrl+C (stops the container unless you handle signals)
+
+Detached Mode (`-d` flag):
+- Container runs in background
+- Terminal is free for other commands
+- No live output shown
+- Check output with: docker logs <container>
+
+Example:
+- Attached: docker run ubuntu
+- Detached: docker run -d nginx

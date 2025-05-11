@@ -14,8 +14,68 @@ docker run node
 - Runs a container from the official Node.js image
 - Starts an interactive Node.js REPL by default
 - Use -it to interact: docker run -it node
+- Use --rm, to remove container once stopped
+
+docker run -it sha256:<digest>
+- Runs a container from a specific image by its SHA256 digest
+- -it: interactive mode with terminal
+- Useful when the image has no tag or to ensure exact version
 
 
 docker ps -a
 - Lists all containers (running + stopped)
 - Use plain docker ps to show only running containers
+
+
+--help
+- Shows help for any Docker command
+- Example: docker run --help
+
+
+docker start
+- Starts a stopped container (doesn’t create a new one)
+- Non-blocking: container runs in background
+- Use docker attach <name> to interact if needed
+
+docker start -ai cool_hertz
+- Starts a stopped container and attaches to it
+- -a: attach stdout/stderr
+- -i: interactive (keep STDIN open)
+- Useful for resuming interactive containers
+
+
+
+docker logs
+- Shows stdout/stderr from a container
+- Format: docker logs <container_id or name>
+- Use -f to follow logs live (like tail -f)
+
+
+docker rm
+- Removes one or more stopped containers
+- Format: docker rm <container_id or name>
+- Use -f to force remove running containers
+
+
+docker rmi
+- Removes one or more images from the local machine
+- Format: docker rmi <image_id or name>
+- Use -f to force remove images that are in use by stopped containers
+
+
+docker image prune
+- Removes unused (dangling) images to free up space
+- By default, removes images not tagged or associated with a container
+- Use -a to remove all unused images, not just dangling ones
+
+
+docker images
+- Lists all images on the local machine
+- Shows image ID, repository, tag, size, and more
+- Use -a to show all images, including intermediate ones
+
+
+docker image inspect
+- Shows detailed JSON metadata about an image
+- Format: docker image inspect <image_id or name>
+- Useful for checking layers, environment vars, entrypoint, etc.
