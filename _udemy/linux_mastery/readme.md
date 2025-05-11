@@ -54,6 +54,7 @@ Aliases
 
 ---
 Brace Expansion
+
 Generates string patterns quickly
 
     echo {a,b,c}                // a b c  
