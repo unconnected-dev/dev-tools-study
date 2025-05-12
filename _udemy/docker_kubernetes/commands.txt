@@ -1,3 +1,8 @@
+docker build -t goals:latest .
+- Builds an image from a Dockerfile in the current directory
+- -t sets the name and tag (goals:latest)
+
+
 docker run -p
 - Maps container port to host port
 - Format: -p <host_port>:<container_port>
@@ -79,3 +84,9 @@ docker image inspect
 - Shows detailed JSON metadata about an image
 - Format: docker image inspect <image_id or name>
 - Useful for checking layers, environment vars, entrypoint, etc.
+
+
+docker cp
+- Copies files between host and container
+- Format: docker cp <source> <dest>
+- Example: docker cp my_container:/app/log.txt ./log.txt

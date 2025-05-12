@@ -50,6 +50,13 @@ Images are read-only
 - Containers add a writable layer on top of the image
 
 
+Image Tags
+- Tag identifies image versions (e.g. nginx:latest, node:18)
+- Format: <repository>:<tag>
+- Default tag is :latest if not specified
+- Tags help manage and pull specific versions
+
+
 Docker build cache
 - Docker uses cached layers to speed up builds
 - If one layer changes, all layers after it are rebuilt
