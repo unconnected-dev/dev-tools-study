@@ -48,6 +48,10 @@ docker start -ai cool_hertz
 - -i: interactive (keep STDIN open)
 - Useful for resuming interactive containers
 
+docker start and ports
+- Reuses port mappings set during original docker run
+- You can’t change ports with docker start
+- To use different ports, create a new container with docker run -p
 
 
 docker logs
