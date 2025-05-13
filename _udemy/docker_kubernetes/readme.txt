@@ -87,3 +87,10 @@ Detached Mode (`-d` flag):
 Example:
 - Attached: docker run ubuntu
 - Detached: docker run -d nginx
+
+
+Docker Layers
+- Images are built in layers, one per Dockerfile instruction
+- Layers are cached and reused to speed up builds
+- Changing one layer causes all layers after it to rebuild
+- Use `docker history <image>` to see layer info

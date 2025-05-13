@@ -94,3 +94,34 @@ docker cp
 - Copies files between host and container
 - Format: docker cp <source> <dest>
 - Example: docker cp my_container:/app/log.txt ./log.txt
+
+
+docker tag
+- Adds a new name/tag to an existing image
+- Format: docker tag <source_image> <target_name>:<tag>
+- Example: docker tag app:latest myrepo/app:v1
+
+
+docker login / logout
+- docker login: Authenticates with Docker Hub or a registry
+  Format: docker login [registry]
+- docker logout: Logs out from the registry
+  Format: docker logout [registry]
+
+
+docker push
+- Uploads a tagged image to a registry (e.g. Docker Hub)
+- Format: docker push <username>/<image>:<tag>
+- Requires docker login and proper image tagging
+
+
+docker pull
+- Downloads an image from a registry (e.g. Docker Hub)
+- Format: docker pull <image>:<tag>
+- Example: docker pull nginx:latest
+
+
+docker container prune
+- Removes all stopped containers
+- Frees up space, keeps running containers safe
+- Add -f to skip confirmation: docker container prune -f
