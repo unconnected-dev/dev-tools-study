@@ -1,5 +1,6 @@
 https://www.udemy.com/course/docker-kubernetes-the-practical-guide/
 https://labs.play-with-docker.com
+https://headsigned.com/posts/mounting-docker-volumes-with-docker-toolbox-for-windows/
 
 Docker
 A container technology. A tool for creating and managing containers.
@@ -158,3 +159,51 @@ docker run -p 3000:80 -d -v feedback:/app/feedback --name feedback-app feedback-
 - Uses named volume "feedback" at /app/feedback (persists data)
 - Names the container "feedback-app"
 - Uses image "feedback-node:volumes"
+
+
+Bind Mounts
+- Link a host directory directly into the container
+- Format: -v /host/path:/container/path
+- Reflects live changes (great for dev)
+- Example: docker run -v $(pwd):/app my-image
+- Path must exist on host (unlike named volumes)
+
+
+Volume/Bind Mount Path Priority
+- If multiple mounts target the same path, **the last one wins**
+- In your command:
+  - feedback:/app/feedback mounts first
+  - then the bind mount to /app overrides everything under /app (including /app/feedback)
+- So, /app/feedback from the container image or named volume is hidden by the host’s /app
+
+Tip:
+- Avoid overlapping mount paths to prevent unexpected hiding
+- Separate data and code paths cleanly (e.g., mount code to /app and data to /data)
+
+
+docker run -v /app/data ...                     Anonymous Volume
+docker run -v data:/app/data ...                Named Volume
+docker run -v /path/to/code:/app/code ...       Bind Mount
+
+
+Anonymous Volumes
+Created specifically for a single container
+Survives container shurtdown / restart unless --rm is used
+Can not be shared across containers
+Since it's Anonymous, it can't be reused (even on same images)
+
+
+Named Volumes
+Created in general - not tied to any specific container
+Survives container shutdown / restart - removal via Docker CLI
+Can be shared across containers
+Can be re-used for same container (across restarts)
+
+Binds Mounts
+Location on host file system, not tied to any specific container
+Survives container shutdown / restart - removal on host fs
+Can be shared across containers
+Can be re-used for same container (across restarts)
+
+
+

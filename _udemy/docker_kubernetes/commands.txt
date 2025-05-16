@@ -125,3 +125,20 @@ docker container prune
 - Removes all stopped containers
 - Frees up space, keeps running containers safe
 - Add -f to skip confirmation: docker container prune -f
+
+
+
+Bind Mounts
+docker run -p 3000:80 -d --name feedback-app \
+  -v feedback:/app/feedback \
+  -v "/home/paul/.../docker_project_04:/app" \
+  feedback-node:volumes
+
+- Runs container in detached mode
+- Maps host port 3000 → container port 80
+- Named volume "feedback" → /app/feedback (persists data)
+- Bind mount host project dir → /app (live sync with host)
+- Container name: feedback-app
+- Image: feedback-node:volumes
+
+Note: Bind mount overrides image files at /app
