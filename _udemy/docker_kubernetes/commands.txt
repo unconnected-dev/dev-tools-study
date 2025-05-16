@@ -142,3 +142,9 @@ docker run -p 3000:80 -d --name feedback-app \
 - Image: feedback-node:volumes
 
 Note: Bind mount overrides image files at /app
+
+
+docker volume ls
+- Lists all Docker volumes on the system
+- Shows volume names and drivers
+- Use to identify named or dangling volumes

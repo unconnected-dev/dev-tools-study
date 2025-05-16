@@ -207,3 +207,26 @@ Can be re-used for same container (across restarts)
 
 
 
+Read-Only Volumes
+- Mounts can be made read-only using :ro
+- Seems to be good practice to avoid unintentional bugs
+- Prevents container from modifying the content
+- Format: -v <source>:<target>:ro
+- Example: docker run -v /data:/app/data:ro my-image
+
+
+
+Arguments vs Environment Variables
+
+Build-time: ARG
+- Defined in Dockerfile with ARG
+- Set during build: docker build --build-arg NAME=value
+- Not persisted in final image
+- Not accessible in CMD or any application code
+
+Run-time: ENV
+- Set in Dockerfile (ENV) or at run: docker run -e NAME=value
+- Default in Dockerfile but it can be overwritten in run command
+- Available inside container at runtime
+- Used for config, secrets, ports, etc.
+- Availabe inside of Dockerfile and in application code
