@@ -148,3 +148,31 @@ docker volume ls
 - Lists all Docker volumes on the system
 - Shows volume names and drivers
 - Use to identify named or dangling volumes
+
+
+docker run --network my_network
+- Connects the container to a specific network (e.g., custom bridge)
+- Enables communication with other containers on that network
+- Example: docker run --network my_net app
+
+
+docker container inspect
+- Shows detailed JSON metadata about a container
+- Format: docker container inspect <name or ID>
+- Includes info on volumes, networks, IP, mounts, ports, env vars, etc.
+
+
+docker network ls
+- Lists all Docker networks on the system
+- Shows network name, ID, driver (e.g. bridge, host), and scope
+- Use to view default and custom networks
+
+
+docker run -d --name favorites --rm -p 3000:3000 --network my_net favorites-node
+
+- Runs container in detached mode
+- Automatically removes container when it stops (--rm)
+- Maps host port 3000 → container port 3000
+- Connects to custom network "my_net"
+- Names the container "favorites"
+- Uses image "favorites-node"

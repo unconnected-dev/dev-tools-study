@@ -230,3 +230,60 @@ Run-time: ENV
 - Available inside container at runtime
 - Used for config, secrets, ports, etc.
 - Availabe inside of Dockerfile and in application code
+
+
+Docker Networks
+- Allow containers to communicate with each other
+- Types:
+  • bridge (default): isolated, local container network
+  • host: uses host’s network stack (Linux only)
+  • none: no network
+- Create custom bridge: docker network create my-net
+- Connect with: docker run --network my-net ...
+- Containers on same user-defined bridge can resolve each other by name
+
+Within a Docker network, all containers can communicate with each other and IPs
+are automatically resolved
+Docker does not automatically create networks, they need to be created via command
+
+If two Docker containers are part of the same network you can put the container name
+in directly as a domain and Docker will translate the name to the IP address of the 
+container
+
+
+
+How Docker Resolves IP Addresses
+
+- Containers on the same user-defined bridge network can resolve each other by **name**
+- Docker uses an internal DNS server to map container names to IPs
+- Example: ping another container using its name: `ping my-db`
+- IPs are dynamically assigned; use container names, not IPs, for reliability
+- Use `docker network inspect <network>` to see name-IP mappings
+
+
+Docker Network Drivers
+
+1. bridge (default)
+- Local, isolated network on the Docker host
+- Containers can communicate by name if on same user-defined bridge
+
+2. host
+- Shares host's network stack (no isolation)
+- No port mapping needed; container uses host's ports directly
+
+3. overlay
+- Enables multi-host container communication
+- Used with Docker Swarm
+- Requires key-value store or Swarm manager
+
+4. macvlan
+- Assigns MAC address from host's network to container
+- Container behaves like a physical device on the LAN
+- Advanced use, often needs manual host config
+
+5. none
+- Disables all networking (no external access)
+
+6. third-party plugins
+- Extend Docker networking (e.g., Weave, Calico, Cilium)
+- Add features like encryption, policy control, cross-data center support
