@@ -1,138 +1,138 @@
 Quick Ref
-git status                     # Check status of files
-git add .                      # Stage all changes
-git commit -m "msg"            # Commit staged changes
-git push                       # Push to remote
-git pull                       # Pull from remote
-git fetch                      # Fetch from remote (no merge)
-git switch <branch>            # Switch branches
-git switch -c <branch>         # Create and switch to a new branch
-git branch                     # List branches
-git merge <branch>             # Merge into current branch
-git log --oneline              # Show concise history
-git stash                      # Save changes temporarily
-git stash pop                  # Apply and remove latest stash
-git restore <file>             # Discard local changes to a file
-git diff                       # View unstaged changes
+git status                          // Check status of files
+git add .                           // Stage all changes
+git commit -m "msg"                 // Commit staged changes
+git push                            // Push to remote
+git pull                            // Pull from remote
+git fetch                           // Fetch from remote (no merge)
+git switch <branch>                 // Switch branches
+git switch -c <branch>              // Create and switch to a new branch
+git branch                          // List branches
+git merge <branch>                  // Merge into current branch
+git log --oneline                   // Show concise history
+git stash                           // Save changes temporarily
+git stash pop                       // Apply and remove latest stash
+git restore <file>                  // Discard local changes to a file
+git diff                            // View unstaged changes
 
 
 
 General Workflow
-git status                     # Check current branch status (staged, unstaged,
-                                 untracked)
-git add .                      # Stage all changes in working directory
-git commit -m "msg"            # Commit staged changes with a message
-git push                       # Push local changes to remote repository
-git pull                       # Fetch and merge changes from remote
-git fetch                      # Get remote changes (does not merge)
+git status                          // Check current branch status (staged, unstaged,
+                                       untracked)
+git add .                           // Stage all changes in working directory
+git commit -m "msg"                 // Commit staged changes with a message
+git push                            // Push local changes to remote repository
+git pull                            // Fetch and merge changes from remote
+git fetch                           // Get remote changes (does not merge)
 
 
 Branch Management
-git branch                     # List local branches
-git branch -r                  # List remote branches
-git branch <name>              # Create a new branch
-git branch -d <name>           # Delete local branch (if merged)
-git branch -D <name>           # Force delete branch (even if unmerged)
-git branch -m old new          # Rename local branch
+git branch                          // List local branches
+git branch -r                       // List remote branches
+git branch <name>                   // Create a new branch
+git branch -d <name>                // Delete local branch (if merged)
+git branch -D <name>                // Force delete branch (even if unmerged)
+git branch -m old new               // Rename local branch
 
-git switch <branch>            # Switch to another branch
-git switch -c <new-branch>     # Create and switch to new branch
-git switch -                   # Switch to previously checked-out branch
+git switch <branch>                 // Switch to another branch
+git switch -c <new-branch>          // Create and switch to new branch
+git switch -                        // Switch to previously checked-out branch
 
 
 Merging & Rebasing
-git merge <branch>            # Merge specified branch into current one
-git rebase <base-branch>      # Replay commits on top of base-branch
-git rebase -i <branch>        # Interactive rebase (edit, reorder, squash)
+git merge <branch>                  // Merge specified branch into current one
+git rebase <base-branch>            // Replay commits on top of base-branch
+git rebase -i <branch>              // Interactive rebase (edit, reorder, squash)
 
 
 Staging & Committing
-git add <file>                # Stage specific file
-git add .                     # Stage all modified and new files
-git commit -m "message"       # Commit with message
-git commit --amend            # Modify last commit (message or files)
+git add <file>                      // Stage specific file
+git add .                           // Stage all modified and new files
+git commit -m "message"             // Commit with message
+git commit --amend                  // Modify last commit (message or files)
 
 
 Stash Commands
-git stash                     # Stash uncommitted changes
-git stash list                # Show list of stashed changes
-git stash apply               # Apply most recent stash (keep stash)
-git stash pop                 # Apply and remove most recent stash
-git stash apply stash@{n}     # Apply specific stash
-git stash drop stash@{n}      # Delete specific stash
-git stash clear               # Delete all stashes
+git stash                           // Stash uncommitted changes
+git stash list                      // Show list of stashed changes
+git stash apply                     // Apply most recent stash (keep stash)
+git stash pop                       // Apply and remove most recent stash
+git stash apply stash@{n}           // Apply specific stash
+git stash drop stash@{n}            // Delete specific stash
+git stash clear                     // Delete all stashes
 
 
 Inspecting Changes
-git diff                            # Show unstaged changes
-git diff <file>                     # Unstaged changes in a file
-git diff --staged                   # Show staged changes
-git diff HEAD                       # Changes since last commit (staged + 
-                                      unstaged)
-git diff <a>..<b>                   # Show commits in b not in a
-git diff <a>...<b>                  # Changes between tips of a and b from 
-                                      common ancestor
+git diff                            // Show unstaged changes
+git diff <file>                     // Unstaged changes in a file
+git diff --staged                   // Show staged changes
+git diff HEAD                       // Changes since last commit (staged + 
+                                       unstaged)
+git diff <a>..<b>                   // Show commits in b not in a
+git diff <a>...<b>                  // Changes between tips of a and b from 
+                                       common ancestor
 
 
 Undoing Changes
-git restore <file>                  # Discard changes in file (unstaged)
-git restore --staged <file>         # Unstage file
-git restore --source HEAD~1 <file>  # Restore file from older commit
+git restore <file>                  // Discard changes in file (unstaged)
+git restore --staged <file>         // Unstage file
+git restore --source HEAD~1 <file>  // Restore file from older commit
 
-git reset <commit>                  # Move HEAD to commit (preserves changes)
-git reset --hard <commit>           # Move HEAD and delete all changes
+git reset <commit>                  // Move HEAD to commit (preserves changes)
+git reset --hard <commit>           // Move HEAD and delete all changes
 
-git revert <commit>                 # Create commit to undo changes from past 
-                                      commit
+git revert <commit>                 // Create commit to undo changes from past 
+                                       commit
 
 
 History & Logs
-git log                             # Full commit history
-git log --oneline                   # Condensed commit history
-git reflog                          # Log of HEAD movements
-git reflog show                     # Same as above
+git log                             // Full commit history
+git log --oneline                   // Condensed commit history
+git reflog                          // Log of HEAD movements
+git reflog show                     // Same as above
 
 
 Remotes
-git remote                          # List remotes
-git remote -v                       # Show remote URLs
-git remote add <name> <url>         # Add remote
-git remote rename old new           # Rename remote
-git remote remove <name>            # Remove remote
+git remote                          // List remotes
+git remote -v                       // Show remote URLs
+git remote add <name> <url>         // Add remote
+git remote rename old new           // Rename remote
+git remote remove <name>            // Remove remote
 
 
 Pushing and Pulling
-git push                            # Push current branch to remote
-git push origin main                # Push main branch to origin
-git push <remote> <branch>          # Push specific branch
-git push -u origin <branch>         # Set upstream (for future shorthand)
-git push <remote> <local>:<remote>  # Push local branch to a different remote 
-                                      branch
+git push                            // Push current branch to remote
+git push origin main                // Push main branch to origin
+git push <remote> <branch>          // Push specific branch
+git push -u origin <branch>         // Set upstream (for future shorthand)
+git push <remote> <local>:<remote>  // Push local branch to a different remote 
+                                       branch
 
-git pull                            # Fetch and merge
-git pull origin main                # Pull from specific branch
+git pull                            // Fetch and merge
+git pull origin main                // Pull from specific branch
 
 
 Tags
-git tag                             # List all tags
-git tag -l "v1.*"                   # Filter tags by pattern
-git tag <tag>                       # Create lightweight tag
-git tag -a <tag> -m "msg"           # Annotated tag with message
-git tag <tag> <commit>              # Tag specific commit
-git show <tag>                      # Show tag details
-git checkout <tag>                  # Checkout a tag (detached HEAD)
-git tag -d <tag>                    # Delete local tag
-git push --tags                     # Push all tags
-git push origin <tag>               # Push specific tag
+git tag                             // List all tags
+git tag -l "v1.*"                   // Filter tags by pattern
+git tag <tag>                       // Create lightweight tag
+git tag -a <tag> -m "msg"           // Annotated tag with message
+git tag <tag> <commit>              // Tag specific commit
+git show <tag>                      // Show tag details
+git checkout <tag>                  // Checkout a tag (detached HEAD)
+git tag -d <tag>                    // Delete local tag
+git push --tags                     // Push all tags
+git push origin <tag>               // Push specific tag
 
 
 Configuration & Misc
-git init                            # Initialize a repository
+git init                            // Initialize a repository
 git config --list
-git config --local user.name        # Show local Git username
-git clone <url>                     # Clone remote repo
-git checkout <branch/commit>        # Checkout branch or commit
-git checkout HEAD~1                 # Checkout previous commit (detached HEAD)
-git checkout HEAD <file>            # Restore file to last commit
-git hash-object <file>              # Show Git object hash of file contents
-code .                              # Open current dir in VS Code
+git config --local user.name        // Show local Git username
+git clone <url>                     // Clone remote repo
+git checkout <branch/commit>        // Checkout branch or commit
+git checkout HEAD~1                 // Checkout previous commit (detached HEAD)
+git checkout HEAD <file>            // Restore file to last commit
+git hash-object <file>              // Show Git object hash of file contents
+code .                              // Open current dir in VS Code
