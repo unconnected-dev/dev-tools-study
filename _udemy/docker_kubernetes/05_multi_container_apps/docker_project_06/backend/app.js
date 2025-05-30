@@ -81,8 +81,13 @@ app.delete('/goals/:id', async (req, res) => {
 });
 
 mongoose.connect(
-	// `mongodb://mongodb:27017/course-goals`,
-	`mongodb://mongoadmin:secret@mongodb:27017/course-goals?authSource=admin`,
+	// host.docker.internal will fail if port 27017 is not published
+	// `mongodb://host.docker.internal:27017/course-goals`,
+	
+	// Use mongodb as domain due to docker network and this code executes in the
+	// docker container
+	`mongodb://mongodb:27017/course-goals`,
+	// `mongodb://mongoadmin:secret@mongodb:27017/course-goals?authSource=admin`,
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true
