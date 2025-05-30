@@ -2,6 +2,14 @@ https://www.udemy.com/course/docker-kubernetes-the-practical-guide/
 https://labs.play-with-docker.com
 https://headsigned.com/posts/mounting-docker-volumes-with-docker-toolbox-for-windows/
 
+
+docker run --name mongodb -v data:/data/db --rm -d --network my_net -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
+
+docker run --name goals-backend --rm -d -p 8080:80 --network my_net -v "/home/paul/_GitHub/dev-tools-study/_udemy/docker_kubernetes/05_multi_container_apps/docker_project_06/backend":/app -v "/home/paul/_GitHub/dev-tools-study/_udemy/docker_kubernetes/05_multi_container_apps/docker_project_06/backend/logs":/app/logs -v /app/node_modules goals-node
+
+docker run --name goals-frontend --rm -p 3000:3000 -d -it -v "/home/paul/_GitHub/dev-tools-study/_udemy/docker_kubernetes/05_multi_container_apps/docker_project_06/frontend/src":/app/src goals-react
+
+
 Docker
 A container technology. A tool for creating and managing containers.
 

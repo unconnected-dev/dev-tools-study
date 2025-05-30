@@ -86,8 +86,13 @@ mongoose.connect(
 	
 	// Use mongodb as domain due to docker network and this code executes in the
 	// docker container
-	`mongodb://mongodb:27017/course-goals`,
+	// `mongodb://mongodb:27017/course-goals`,
+
+	// Accessing database with username:password
 	// `mongodb://mongoadmin:secret@mongodb:27017/course-goals?authSource=admin`,
+
+	// Using variables instead of hard coding username:password
+	`mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@mongodb:27017/course-goals?authSource=admin`,
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true
