@@ -176,3 +176,18 @@ docker run -d --name favorites --rm -p 3000:3000 --network my_net favorites-node
 - Connects to custom network "my_net"
 - Names the container "favorites"
 - Uses image "favorites-node"
+
+
+docker-compose up
+- Starts all services defined in docker-compose.yml
+- Builds images if needed
+- Use -d to run in detached mode: docker-compose up -d
+- Stops and removes containers with: docker-compose down
+
+
+docker-compose down
+- Stops and removes containers, networks, and default volumes created by up
+- Use flags to remove more:
+  • --volumes to remove named volumes
+  • --rmi all to remove images
+- Cleans up everything created by docker-compose up

@@ -1,6 +1,7 @@
 https://www.udemy.com/course/docker-kubernetes-the-practical-guide/
 https://labs.play-with-docker.com
 https://headsigned.com/posts/mounting-docker-volumes-with-docker-toolbox-for-windows/
+https://docs.docker.com/reference/compose-file/
 
 
 docker run --name mongodb -v data:/data/db --rm -d --network my_net -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=secret mongo

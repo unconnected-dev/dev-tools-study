@@ -1,0 +1,86 @@
+# Version sets whats features / configs may be available
+version: '3.8'
+
+# Indent by 2 spaces is a direct child
+services:
+
+  # These service names are what you refer to in the code
+  mongodb:
+    # Image to base the container off
+    image: 'mongo'
+    # By default docker compose will --rm (remove)
+    # -d (detached mode) will be specified when starting ervices togeather
+
+    volumes:
+      # Volumes require a dash
+      - data:/data/db
+    
+    # Key value pairs create yaml objects that don't require dashes
+    # Single values (not paired) require a dash
+    environment:
+      # - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+
+    # An environment file could be used
+    # Needs relative paths
+    # env_file:
+      # - ./env_dir/env_file.env
+
+    # Network is not needed as docker compose creates a new
+    # environment for all services specified in the file and add them
+    # to a network
+    # networks:
+      # - my_net
+      
+
+  backend:
+    # Docker compose can be given information to build an image
+    # Can use a relative path, then it will look for a docker file to build off
+    build: ./backend
+
+    # build:
+    #   context: ./backend
+    #   dockerfile: dockerfile
+    #   args:
+    #     some-arg: 1
+
+    ports:
+      - '8080:80'
+
+    volumes:
+      - /app/node_modules
+      # Can use relative paths from the yaml file position
+      - ./backend:/app
+      - logs:/app/logs
+
+    env_file:
+      - ./env/backend.env
+
+    # Only have in docker compose, not docker run
+    # Some containers may require other containers to be running first
+    depends_on:
+      - mongodb
+
+  frontend:
+    build: ./frontend
+
+    ports:
+      - '3000:3000'
+
+    volumes:
+      - ./frontend/src:/app/src
+
+    # To force the interactive mode react requires
+    stdin_open: true
+    tty: true
+
+    depends_on:
+      - backend
+
+# Any named volumes in services need to be listed here
+# Different services that use the same volume name will share a single volume
+# Anonymous volumes and bind mounts don't need to be listed
+volumes:
+  data:
+  logs:
