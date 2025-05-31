@@ -1,10 +1,13 @@
+# BUILD IMAGES
+
+# CREATE NETWORK
+
+
 # TO SET UP MONGODB
-docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=costa -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
+docker run --name mongodb -v data:/data/db --rm -d --network my_net -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
 
 # TO SET UP BACKEND
-docker run --name goals-backend --rm --network goals-net -p 80:80 -v $(pwd):/app goals-node
+docker run --name goals-backend --rm -d -p 8080:80 --network my_net -v "/home/paul/_GitHub/dev-tools-study/_udemy/docker_kubernetes/05_multi_container_apps/docker_project_06/backend":/app -v "/home/paul/_GitHub/dev-tools-study/_udemy/docker_kubernetes/05_multi_container_apps/docker_project_06/backend/logs":/app/logs -v /app/node_modules goals-node
 
 # TO SET UP FRONTEND
- docker run -v [ABSOLUTE PATH]:/app/src --name goals-frontend --rm -p 3000:3000 -it goals-react
-
- ** BUILD IMAGES BEFOREHAND! **
+docker run --name goals-frontend --rm -p 3000:3000 -d -it -v "/home/paul/_GitHub/dev-tools-study/_udemy/docker_kubernetes/05_multi_container_apps/docker_project_06/frontend/src":/app/src goals-react

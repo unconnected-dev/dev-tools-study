@@ -295,3 +295,14 @@ Docker Network Drivers
 6. third-party plugins
 - Extend Docker networking (e.g., Weave, Calico, Cilium)
 - Add features like encryption, policy control, cross-data center support
+
+
+Docker Compose
+- Tool for defining and running multi-container Docker apps
+- Uses a YAML file (docker-compose.yml) to configure services, networks, and volumes
+- Key command: docker compose up
+  • Builds, (re)creates, and starts containers
+- Key benefits:
+  • Easier multi-container setup
+  • Versioned config in code
+  • Shared networks by default
